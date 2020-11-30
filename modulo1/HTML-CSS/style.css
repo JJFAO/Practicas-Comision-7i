@@ -1,0 +1,123 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-family: 'Roboto', sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-family: "Raleway", sans-serif;
+}
+textarea {
+  resize: none;
+}
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.nav > li {
+  float: left;
+}
+
+.nav > li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav > li a:hover {
+  background-color: #111;
+}
+
+#perfil {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.about {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 300px;
+  padding: 20px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 10px 10px 5px grey;
+}
+.about p {
+  padding: 30px;
+  color: #7c7c7c;
+  font-size: large;
+}
+.about h2 {
+  color: #000000;
+  text-align: center;
+}
+.card-proyecto {
+  width: 800px;
+  height: 200px;
+  background-color: #ebf7ff;
+  margin: auto;
+  margin-top: 30px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px grey;
+}
+.header-proyecto {
+  text-align: center;
+  border-bottom: 2px solid #fff;
+  text-transform: uppercase;
+}
+.contenido-proyecto {
+  padding: 20px;
+  color: #7c7c7c;
+  border-bottom: 2px solid #fff;
+}
+.subtitulo{
+  text-align: center;
+  padding-top: 6rem;
+}
+
+.contacto{
+  background-color: #FFFFFF;
+  margin-top: 200px;
+  padding-bottom: 100px;
+}
+
+.form-contactame{
+  width: 1000px;
+  margin: auto; 
+  padding: 20px;
+}
+
+.form-contactame label{
+  font-size: large;
+  margin: 20px;
+}
+
+.form-contactame input{
+  width: 300px;
+  height: 30px;
+  margin: 20px;
+}
+
+.form-contactame button{
+  font-size: large;
+  background-color: orange;
+  border: none;
+  width: 760px;
+  height: 40px;
+  margin-left: 122px;
+  margin-top: 20px;
+}

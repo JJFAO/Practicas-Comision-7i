@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel con formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&family=Roboto&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img class="logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Wikipedia_logo_%28svg%29.svg/1250px-Wikipedia_logo_%28svg%29.svg.png"
+            alt="">
+        <nav class="inline">
+            <ul class="navbar">
+                <li class="inline">
+                    <a target="_blank" href="https://www.universomarvel.com/">
+                        Universo marvel
+                    </a>
+                </li>
+                <li class="inline">
+                    <a href="#contacto">
+                        Contacto
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="descripcion">
+        <h1>WIKIPEDIA</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/1200px-MarvelLogo.svg.png"
+            width="200" alt="el logo de marvel">
+        <h2>Películas del Universo cinematográfico de Marvel</h2>
+        <p>
+            Las películas del Universo cinematográfico de Marvel —en inglés, <b> Marvel Cinematic Universe</b>,
+            normalmente
+            abreviado MCU— son una serie de películas de superhéroes estadounidenses, basadas en personajes que aparecen
+            en
+            publicaciones de Marvel Comics. Las cintas han estado en producción desde 2007, y desde ese entonces Marvel
+            Studios ha producido más de veinte filmes, con otros en varias etapas de producción. La serie ha recaudado
+            en
+            conjunto más de $22 000 millones en la taquilla mundial, haciéndola la franquicia cinematográfica con mayor
+            recaudación de la historia.
+        </p>
+        <p>
+            Las cintas fueron escritas y dirigidas por una variedad de personas y cuentan con grandes repartos. Varios
+            de
+            los actores, entre ellos <i> Robert Downey Jr., Chris Evans, Chris Hemsworth, Samuel L. Jackson y Scarlett
+                Johansson</i>
+            firmaron contratos para protagonizar numerosas películas.
+        </p>
+    </section>
+
+    <hr>
+
+    <section id="fases">
+        <h3 class="title">
+            Películas fase 1
+        </h3>
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>
+                        Película
+                    </th>
+                    <th>
+                        Estreno
+                    </th>
+                    <th>
+                        Recaudación
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Iron Man
+                    </td>
+                    <td>
+                        2008
+                    </td>
+                    <td>
+                        $1.000.000
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        The Incredible Hulk
+                    </td>
+                    <td>
+                        2008
+                    </td>
+                    <td>
+                        $1.000.000
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Iron Man 2
+                    </td>
+                    <td>
+                        2010
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Thor
+                    </td>
+                    <td>
+                        2011
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Capitán América: el primer vengador
+                    </td>
+                    <td>
+                        2011
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        The Avengers
+                    </td>
+                    <td>
+                        2012
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="recaudaciones">
+        <!-- Esto es un comentario -->
+        <h3>Las Películas con más recaudación</h3>
+        <!-- el atributo reversed ordena de forma descendente la lista-->
+        <ol reversed>
+            <li>
+                AVENGERS: ENDGAME
+            </li>
+            <li>
+                AVENGERS: INFINITY WAR
+            </li>
+            <li>
+                THE AVENGERS.
+            </li>
+            <li>
+                AVENGERS: AGE OF ULTRON.
+            </li>
+            <li>
+                BLACK PANTHER.
+            </li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <section id="contacto">
+        <h3>Contacto</h3>
+        <form class="formulario">
+            <div>
+                <label>Nombre y apellido</label>
+                <input type="text">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email">
+            </div>
+            <textarea placeholder="Escribe tu mensaje"></textarea>
+            <button class="form-footer">Enviar</button>
+        </form>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+/* Estilo aplicados sobre todo el documento, con el selector de la etiqueta body. */
+body {
+    color: slategrey;
+    font-family: sans-serif;
+    margin: 0;
+}
+/* Estilo aplicados sobre los elementos que incluyan el atributo class="texto-azul". */
+.texto-azul {
+    color: indigo;
+}
+.text-center {
+    text-align: center;
+}
+p {
+    text-align: justify;
+}
+h3 {
+    font-size: 22px;
+}
+
+.titulo-principal {
+    /* margin: 45px auto 30px; */
+    margin-top: 45px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+.margen-seccion {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.side-section {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 60px;
+}
+
+.tabla {
+    margin: auto;
+    background-color: #faeefd81;
+    border-collapse: collapse;
+    border-color: #8c10c5;
+}
+
+/* Este selector compuesto, aplica el estilo sobre los td y th
+    presentes dentro de los elementos con la clase .tabla  */
+.tabla td, .tabla th {
+    padding: 0.5rem;
+}
+
+.formulario {
+    border-style: dashed;
+    border-color: tomato;
+    border-width: 3px;
+    padding: 30px;
+    width: 300px;
+    margin-left: 60px;
+}
+
+.input-group {
+    margin: 10px;
+}
+
+/* Este selector compuesto, aplica el estilo sobre los label
+    presentes dentro de los elementos con la clase .formulario  */
+.formulario label {
+    width: 100px;
+    display: inline-block;
+}
+
+/* Este selector aplica estilo sobre el elemento con el id #mensaje */
+#mensaje {
+    width: 95%;
+    height: 3rem;
+    margin-top: 3px;
+}
+
+.boton-submit {
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 50px;
+    position: absolute;
+    left: 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.title-form {
+    margin-left: 4rem;
+}
+
+.nav {
+    background-color: #0f0e0ece;
+    background-image: radial-gradient(ellipse at top left, #41bece, #3f51b5, #55167d);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    text-align: center;
+}
+
+.enlaces {
+    padding: 0;
+}
+
+.enlaces a:visited {
+    color: rgb(190, 186, 186);
+}
+
+.enlaces a:hover {
+    color: red;
+}
+
+.enlaces a {
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.texto-fondo {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    transform: rotateZ(-24deg);
+    z-index: -1;
+    font-size: 1.5rem;
+    color: #e60404e3;
+}
+
+.relative {
+    position: relative;
+}
+
+.giro {
+    transition-duration: 0.7s;
+}
+.giro:hover {
+    transform: rotate3d(0.8, 1, 0, 360deg);
+    transition-timing-function: ease-in-out;
+}
