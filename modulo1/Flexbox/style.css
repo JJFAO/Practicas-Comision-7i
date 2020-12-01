@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.barra-flex {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+}
+
+.nav-flex {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+}
+
+.nav-flex a {
+    margin: 0 0.5rem;
+    color: aliceblue;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.nav-flex a:hover {
+    color: #333;
+    background-color: aliceblue;
+}
+
+.card {
+    background-color: #363434;
+    color: honeydew;
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    margin: 1rem;
+}
+
+.card h3, .card p {
+    border-bottom: honeydew 1px solid;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

@@ -1,7 +1,8 @@
 /* Estilo aplicados sobre todo el documento, con el selector de la etiqueta body. */
 body {
     color: slategrey;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
+    font-family: 'Nerko One', cursive;
     margin: 0;
 }
 /* Estilo aplicados sobre los elementos que incluyan el atributo class="texto-azul". */
@@ -58,6 +59,7 @@ h3 {
     padding: 30px;
     width: 300px;
     margin-left: 60px;
+    border-radius: 5px;
 }
 
 .input-group {
@@ -112,8 +114,12 @@ h3 {
     padding: 0;
 }
 
+.enlaces a {
+    color: #ece2e2;
+}
+
 .enlaces a:visited {
-    color: rgb(190, 186, 186);
+    color: #bebaba;
 }
 
 .enlaces a:hover {
