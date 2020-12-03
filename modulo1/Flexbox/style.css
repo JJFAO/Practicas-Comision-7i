@@ -1,50 +1,112 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(100, 55, 136, 1) 50%, rgba(176, 69, 147, 1) 100%);
 }
 
+
+/* Estilos Navbar */
 .barra-flex {
     display: flex;
     justify-content: space-between;
     background-color: #333;
 }
-
 .nav-flex {
     display: flex;
     align-items: center;
 }
-
 .logo {
     width: 50px;
 }
-
 .nav-flex a {
     margin: 0 0.5rem;
     color: aliceblue;
     padding: 14px 20px;
     text-decoration: none;
 }
-
 .nav-flex a:hover {
     color: #333;
     background-color: aliceblue;
 }
 
-.card {
-    background-color: #363434;
-    color: honeydew;
-    width: 200px;
-    min-width: 200px;
-    height: 200px;
-    margin: 1rem;
-}
 
-.card h3, .card p {
-    border-bottom: honeydew 1px solid;
-}
-
+/* Estilos sección cards */
 .cards {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+.card {
+    background-color: #363434;
+    color: honeydew;
+    width: 230px;
+    min-width: 200px;
+    height: 330px;
+    margin: 1rem;
+}
+.card h3,
+.card p {
+    border-bottom: honeydew 1px solid;
+    padding: 0px 1rem;
+}
+.card a {
+    text-align: center;
+    padding-left: 1.5rem;
+    color: #24ae3b;
+}
+.card-img {
+    height: 130px;
+    text-align: center;
+}
+
+
+/* Estilos Sección Formulario */
+.formulario {
+    background-color: #333;
+    max-width: 600px;
+    padding: 3rem;
+    margin: 5rem auto;
+    color: aliceblue;
+    font-size: 1.2rem;
+}
+.formulario input,
+.formulario textarea {
+    background-color: #333;
+    border: none;
+    border-bottom: 2px aliceblue solid;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+}
+.formulario label {
+    display: block;
+}
+.flex-nombres {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 550px) {
+    .flex-nombres > div {
+        width: 100%;
+    }
+}
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+}
+.boton {
+    padding: 0.7rem 3rem;
+    background-color: #1e6d9b;
+    color: aliceblue;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+@media screen and (max-width: 550px) {
+    .boton {
+        padding: 0.3rem 1.3rem;
+        background-color: #bdcdd6;
+    }
 }

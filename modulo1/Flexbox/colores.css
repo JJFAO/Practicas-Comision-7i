@@ -1,0 +1,18 @@
+.colores {
+    background-color: #333;
+    max-width: 600px;
+    padding: 3rem;
+    margin: 6rem auto;
+    display: flex;
+}
+
+.lado-izquierdo {
+    color: aliceblue;
+    background-image: url(https://i.pinimg.com/originals/74/e4/f3/74e4f36c346e0bb76872925dd472e53d.jpg);
+    width: 200px;
+    height: 600px;
+}
+
+.lado-derecho {
+    display: flex;
+}
