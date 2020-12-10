@@ -31,7 +31,7 @@
             </div>
             <p>Descripción</p>
             <a href="">link</a>
-            <p>Footer</p>
+            <div>Footer</div>
         </div>
         <div class="card">
             <h3>Título</h3>
@@ -106,9 +106,24 @@
         <div class="lado-izquierdo">
             <h3>Elegí tu color</h3>
         </div>
-        <div class="lado-derecho">
-            <div class="blue"></div>
+        <div class="lado-derecho" onclick="changeTheme(event)">
+            <div id="blue"></div>
+            <div id="yellow"></div>
+            <div id="green"></div>
+            <div id="pink"></div>
+            <div id="red"></div>
+            <div id="purple"></div>
+            <div id="white"></div>
+            <div id="orange"></div>
         </div>
     </section>
+
+    <script>
+        function changeTheme(event) {
+            const color = event.target.id;
+            console.log(color);
+            document.body.style.backgroundColor = color;
+        }
+    </script>
 </body>
 </html>
