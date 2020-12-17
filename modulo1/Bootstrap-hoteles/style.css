@@ -1,0 +1,55 @@
+body {
+  font-family: "Signika", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+.bg-container {
+  background-color: rgb(228, 231, 228);
+}
+
+.titulos {
+  font-family: "Raleway", sans-serif;
+}
+
+.jumbo-color {
+  color: aliceblue;
+  background: rgb(247, 66, 69);
+  background: linear-gradient(
+    270deg,
+    rgba(247, 66, 69, 1) 0%,
+    rgba(178, 63, 94, 1) 20%,
+    rgba(25, 55, 152, 1) 100%
+  );
+  padding: 4rem 3rem;
+}
+
+.card-hotel {
+  width: 14rem;
+  border-color: blueviolet;
+  min-height: 300px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.footer {
+  margin-top: auto;
+  background: rgb(247, 66, 69);
+  background: linear-gradient(
+    270deg,
+    rgba(247, 66, 69, 1) 0%,
+    rgba(178, 63, 94, 1) 20%,
+    rgba(25, 55, 152, 1) 100%
+  );
+}
+.social-icon {
+  font-size: 3rem;
+  color: #c76912;
+  margin: 14px;
+}
