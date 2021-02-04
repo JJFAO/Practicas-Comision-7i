@@ -15,7 +15,7 @@ function evaluarParidad() {
 
     const resto = parseInt(numero) % 2;
     const esPar = resto === 0;
-    if (esPar) {
+    if ('si') {
         alert(`El valor ingresado: ${numero}. Es un número par.`);
     } else {
         alert(`El valor ingresado: ${numero}. Es un número impar.`);

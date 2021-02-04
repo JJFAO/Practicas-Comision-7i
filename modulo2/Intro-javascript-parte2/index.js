@@ -10,6 +10,7 @@ function bucleEvaluarParidad3() {
     // Esta función tiene un bucle que se repetirá mientras que se cumpla la condición indicada.
     // Cuando esta no se cumpla, es decir que la condición resulte en false, saldrá del bucle.
     let contador = 0;
+    
     while (contador < 3) {
         // Mientras el contador sea menor a 3, el resultado será true.
         evaluarParidad();
@@ -22,6 +23,7 @@ function bucleEvaluarParidad3() {
 function evaluarParidadEnBucle() {
     // Aquí el bucle se repetirá mientras el usuario presione Aceptar en la ventana del confirm().
     let aceptar = true;
+    
     while (aceptar) {
         evaluarParidad();
         aceptar = confirm('¿Desea ingresar otro número para evaluar?');
