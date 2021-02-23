@@ -9,7 +9,6 @@ function calcularPromedio() {
     const nota2 = prompt('Ingrese la nota del segundo parcial.');
     const nota3 = prompt('Ingrese la nota del proyecto final.');
     let notasSumadas = 0;
-
     notas.push(nota1);
     notas.push(nota2);
     notas.push(nota3);
@@ -48,6 +47,8 @@ function calcularAprobados() {
 const ricky = { rol: 'Co-mentor', onda: 'buena' };
 // console.log(ricky.onda);
 ricky.rol = 'Mentor';
+const propiedad = 'onda'
+ricky[propiedad]
 // console.log(ricky)
 
 const array = [1, 2, 3];
@@ -100,7 +101,7 @@ function calcularTotalCompra() {
     let sumaTotal = 0;
     for (let i = 0; i < listaCompras.length; i++) {
         const codigo = listaCompras[i];
-        const precio =  productos[codigo].precio;
+        const precio = productos[codigo].precio;
         sumaTotal += precio;
     }
     console.log(`La suma total de la compra es: ${sumaTotal}🍕`);

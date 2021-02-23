@@ -8,18 +8,19 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
-    <title>Introducción JavaScript</title>
+    <title>Introducción DOM</title>
   </head>
   <body>
-    <h1>Introducción JavaScript</h1>
-    <button onclick="evaluarParidad()">Evaluar Paridad</button>
-    <button onclick="bucleEvaluarParidad3()">Evaluar Paridad en bucle de 3</button>
-    <button onclick="evaluarParidadEnBucle()">Evaluar Paridad en bucle</button>
-
+    <h1 id="titulo">Introducción DOM <span>(js)</span></h1>
+    <form id="formulario">
+      <label for="">Ingresar texto</label>
+      <input type="text" id="inputTexto" required>
+      <button type="submit">Enviar</button>
+    </form>
+    <ul id="lista">
+    </ul>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="./evaluarparidad.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
-
