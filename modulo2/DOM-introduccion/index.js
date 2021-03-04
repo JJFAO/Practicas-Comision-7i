@@ -8,7 +8,7 @@ const listaUl = document.getElementById('lista');
 // Agregar tareas a la lista
 formularioForm.onsubmit = function (event) {
   event.preventDefault();
-  const li = document.createElement("div");
+  const li = document.createElement("li");
   li.innerHTML = textoInput.value;
   listaUl.appendChild(li);
 };
