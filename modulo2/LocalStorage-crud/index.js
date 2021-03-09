@@ -5,14 +5,14 @@ const nombreInput = document.getElementById('inputNombre');
 const usuariosTable = document.getElementById('tabla');
 const rolInput = document.getElementById('inputRol');
 const json = localStorage.getItem('usuarios'); // Traer de localStorage el dato asociado a la key "usuarios".
-const usuarios = JSON.parse(json) || []; // Convertir datos de un string JSON a código JavaScript.
+let usuarios = JSON.parse(json) || []; // Convertir datos de un string JSON a código JavaScript.
 
 function generarID() {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
     // after the decimal.
     return '_' + Math.random().toString(36).substr(2, 9);
-};
+}
 
 formularioForm.onsubmit = function (e) {
     e.preventDefault();
@@ -22,6 +22,7 @@ formularioForm.onsubmit = function (e) {
         pass: passInput.value,
         nombre: nombreInput.value,
         rol: rolInput.value,
+        registro: Date.now(),
     };
     usuarios.push(usuario);
     const json = JSON.stringify(usuarios); // Convertir datos a un string JSON.
@@ -45,11 +46,16 @@ function mostrarUsuarios() {
     let filas = [];
     for (let i = 0; i < usuarios.length; i++) {
         const usuario = usuarios[i];
+        const fecha = new Date(usuario.registro);
         const tr = `
             <tr>
                 <td>${usuario.nombre}</td>
                 <td>${usuario.email}</td>
                 <td>${usuario.rol}</td>
+                <td>
+                    <button onclick="mostrarDetalle('${usuario.id}')" type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle">Ver detalle</button>
+                    <button onclick="eliminarUsuario('${usuario.id}')" class="btn btn-danger btn-sm">Eliminar</button>
+                </td>
             </tr>
         `;
         filas.push(tr);
@@ -58,6 +64,30 @@ function mostrarUsuarios() {
 }
 
 mostrarUsuarios();
+
+function eliminarUsuario(id) {
+    // const usuariosFiltrados = usuarios.filter((usuario) => usuario.id !== id);
+
+    let usuariosFiltrados = [];
+    for (let i = 0; i < usuarios.length; i++) {
+        const usuario = usuarios[i];
+        const coincideId = usuario.id === id;
+        if (!coincideId) {
+            usuariosFiltrados.push(usuario);
+        }
+    }
+    const json = JSON.stringify(usuariosFiltrados);
+    localStorage.setItem('usuarios', json);
+    usuarios = usuariosFiltrados;
+    mostrarUsuarios();
+}
+
+function mostrarDetalle(id) {
+    const usuarioEncontrado = usuarios.find((usuario) => usuario.id === id);
+    console.log('mostrarDetalle - usuarioEncontrado', usuarioEncontrado);
+    // const detalleDiv = document.getElementById('detalleUsuario');
+    // detalleDiv.innerHTML = usuarioEncontrado.nombre;
+}
 
 var numbers = [1, 4, 9];
 

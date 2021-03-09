@@ -40,6 +40,7 @@
           <th scope="col">Nombre</th>
           <th scope="col">Correo</th>
           <th scope="col">Rol</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody id="tabla">
@@ -47,9 +48,32 @@
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle">Ver detalle</button>
+            <button onclick="eliminarUsuario()" class="btn btn-danger btn-sm">Eliminar</button></td>
         </tr> -->
       </tbody>
     </table>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Datos de usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="detalleUsuario" class="modal-body">
+          <p>Email</p>
+          <p>Nombre</p>
+          <p>Rol</p>
+          <p>Fecha de registro</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
