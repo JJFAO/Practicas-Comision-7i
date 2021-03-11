@@ -49,13 +49,17 @@
           <td>Otto</td>
           <td>@mdo</td>
           <td>
-            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDetalle">Ver detalle</button>
-            <button onclick="eliminarUsuario()" class="btn btn-danger btn-sm">Eliminar</button></td>
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+              data-bs-target="#modalDetalle">Ver detalle</button>
+            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
+              data-bs-target="#modalEditar">Editar</button>
+            <button onclick="eliminarUsuario()" class="btn btn-danger btn-sm">Eliminar</button>
+          </td>
         </tr> -->
       </tbody>
     </table>
   </div>
-  <!-- Modal -->
+  <!-- Modal Detalle Usuario -->
   <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -64,14 +68,41 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div id="detalleUsuario" class="modal-body">
-          <p>Email</p>
+          <!-- <p>Email</p>
           <p>Nombre</p>
           <p>Rol</p>
-          <p>Fecha de registro</p>
+          <p>Fecha de registro</p> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Editar Usuario -->
+  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formularioEditar">
+          <div class="modal-body">
+            <label for="editarNombre">Ingresar nombre</label>
+            <input type="text" id="editarNombre" required>
+            <br>
+            <label for="editarRol">Ingresar rol</label>
+            <select id="editarRol" required>
+              <option>Scrum Master</option>
+              <option>Dev</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" >Enviar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
