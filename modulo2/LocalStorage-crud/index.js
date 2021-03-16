@@ -7,6 +7,7 @@ const rolInput = document.getElementById('inputRol');
 const editarForm = document.getElementById('formularioEditar');
 const editarNombreInput = document.getElementById('editarNombre');
 const editarRolInput = document.getElementById('editarRol');
+const busquedaForm = document.getElementById('formBusqueda');
 const json = localStorage.getItem('usuarios'); // Traer de localStorage el dato asociado a la key "usuarios".
 let usuarios = JSON.parse(json) || []; // Convertir datos de un string JSON a código JavaScript.
 let usuarioId = '';
@@ -18,7 +19,7 @@ function generarID() {
     return '_' + Math.random().toString(36).substr(2, 9);
 }
 
-formularioForm.onsubmit = function (e) {
+function submitFormulario(e) {
     e.preventDefault();
     const usuario = {
         id: generarID(),
@@ -32,9 +33,9 @@ formularioForm.onsubmit = function (e) {
     const json = JSON.stringify(usuarios); // Convertir datos a un string JSON.
     localStorage.setItem('usuarios', json); // Guardar en localStorage un dato asociado a la key "usuarios".
     mostrarUsuarios();
-    console.log("Se registró exitosamente un usuario. 👨‍💻");
+    console.log('Se registró exitosamente un usuario. 👨‍💻');
     formularioForm.reset(); // reset limpia los campos del formulario.
-};
+}
 
 function mostrarUsuarios() {
     // const usuariosMap = usuarios.map(function (usuario) {
@@ -69,9 +70,11 @@ function mostrarUsuarios() {
     usuariosTable.innerHTML = filas.join('');
 }
 
-mostrarUsuarios();
-
 function eliminarUsuario(id) {
+    const confirmar = confirm('Confirme para eliminar el usuario.');
+    if (!confirmar) {
+        return;
+    }
     // const usuariosFiltrados = usuarios.filter((usuario) => usuario.id !== id);
 
     let usuariosFiltrados = [];
@@ -85,7 +88,7 @@ function eliminarUsuario(id) {
     const json = JSON.stringify(usuariosFiltrados);
     localStorage.setItem('usuarios', json);
     usuarios = usuariosFiltrados;
-    console.log("Se eliminó exitosamente un usuario. 👨‍💻");
+    console.log('Se eliminó exitosamente un usuario. 👨‍💻');
     mostrarUsuarios();
 }
 
@@ -93,7 +96,6 @@ function mostrarDetalle(id) {
     const usuarioEncontrado = usuarios.find((usuario) => usuario.id === id);
     const detalleDiv = document.getElementById('detalleUsuario');
     const fecha = new Date(usuarioEncontrado.registro);
-    console.log('mostrarDetalle - fecha', fecha);
     const detallesUsuario = `
         <p>Email: ${usuarioEncontrado.email}</p>
         <p>Nombre: ${usuarioEncontrado.nombre}</p>
@@ -116,7 +118,7 @@ function cargarModalEditar(id) {
 
 // Al evento submit del formulario de edición le asignamos esta función,
 // que actualiza al usuario seleccionado, con los datos ingresados.
-editarForm.onsubmit = function editarUsuario(e) {
+function editarUsuario(e) {
     e.preventDefault();
     // Actualizar un usuario del array, usando map().
     const usuariosModificado = usuarios.map((usuario) => {
@@ -149,13 +151,46 @@ editarForm.onsubmit = function editarUsuario(e) {
     // Guardar lista de usuarios en localStorage.
     localStorage.setItem('usuarios', json);
     usuarios = usuariosModificado;
-    console.log("Se modificó exitosamente un usuario. 👨‍💻");
+    console.log('Se modificó exitosamente un usuario. 👨‍💻');
     mostrarUsuarios();
     // Ocultar el modal con las funciones incluidas en bootstrap.
     const modalDiv = document.getElementById('modalEditar');
     const modalBootstrap = bootstrap.Modal.getInstance(modalDiv);
     modalBootstrap.hide();
+}
+
+const submitBusqueda = (e) => {
+    e.preventDefault();
+    const usuariosLocal = JSON.parse(localStorage.getItem('usuarios')) || [];
+    const busquedaInput = document.getElementById('busqueda');
+    const termino = busquedaInput.value.toLowerCase();
+    const usuariosFiltrados = usuariosLocal.filter((usuario) => {
+        const nombreEnMinuscula = usuario.nombre.toLowerCase();
+        return nombreEnMinuscula.includes(termino);
+    });
+    usuarios = usuariosFiltrados;
+    mostrarUsuarios();
+    // Condicional para mostrar u ocultar el mensaje "sin resultados".
+    const alerta = document.getElementById('alertaBusqueda');
+    if (usuariosFiltrados.length === 0) {
+        alerta.classList.remove('d-none');
+    } else {
+        alerta.classList.add('d-none');
+    }
 };
+
+const limpiarFiltro = () => {
+    usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    busquedaForm.reset();
+    mostrarUsuarios();
+    const alerta = document.getElementById('alertaBusqueda');
+    alerta.classList.add('d-none');
+}
+
+mostrarUsuarios();
+formularioForm.onsubmit = submitFormulario;
+editarForm.onsubmit = editarUsuario;
+busquedaForm.onsubmit = submitBusqueda;
 
 var numbers = [1, 4, 9];
 

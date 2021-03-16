@@ -29,12 +29,23 @@
         <option>Scrum Master</option>
         <option>Dev</option>
       </select>
+      <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+      data-bs-target="#modalRoles">Administrar roles</button>
+      <br>
       <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <div class="mt-5 mb-3">
+    <form id="formBusqueda">
+      <label for="busqueda">Búsqueda por nombre y correo</label>
+      <input id="busqueda" type="text">
+      <button type="submit">Buscar</button>
+      <button type="button" onclick="limpiarFiltro()">Limpiar</button>
     </form>
   </div>
   <!-- Tabla Usuarios -->
   <div>
-    <table class="table table-dark table-striped mt-5">
+    <table class="table table-dark table-striped">
       <thead>
         <tr>
           <th scope="col">Nombre</th>
@@ -58,6 +69,7 @@
         </tr> -->
       </tbody>
     </table>
+    <div id="alertaBusqueda" class="alert alert-info d-none">No hay resultados para la búsqueda</div>
   </div>
   <!-- Modal Detalle Usuario -->
   <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -99,7 +111,29 @@
             </select>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" type="submit" >Enviar</button>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Administrar Roles -->
+  <div class="modal fade" id="modalRoles" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Administrar roles</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="formularioRoles">
+          <div class="modal-body">
+            <label for="editarNombre">Ingresar nuevo rol:</label>
+            <input type="text" id="nuevoRol" required>
+            <br>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">Enviar</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           </div>
         </form>
@@ -111,6 +145,7 @@
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
   <script src="./index.js"></script>
+  <script src="./roles.js"></script>
 </body>
 
 </html>
