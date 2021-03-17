@@ -9,6 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <title>CRUD</title>
+  <link rel="shortcut icon"
+    href="https://www.anerbarrena.com/wp-content/uploads/2017/08/programacion-javascript-js-e1503258707880.jpg"
+    type="image/x-icon">
 </head>
 
 <body>
@@ -30,7 +33,7 @@
         <option>Dev</option>
       </select>
       <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-      data-bs-target="#modalRoles">Administrar roles</button>
+        data-bs-target="#modalRoles">Administrar roles</button>
       <br>
       <button type="submit">Enviar</button>
     </form>
@@ -131,6 +134,16 @@
             <label for="editarNombre">Ingresar nuevo rol:</label>
             <input type="text" id="nuevoRol" required>
             <br>
+            <ul id="listaRoles" class="mt-4">
+              <!-- <li>
+                <span style="min-width: 150px; display: inline-block">Dev</span>
+                <button class="btn btn-sm btn-danger">Eliminar</button>
+              </li>
+              <li>
+                <span style="min-width: 150px; display: inline-block">Master</span>
+                <button class="btn btn-sm btn-danger">Eliminar</button>
+                </li> -->
+            </ul>
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary" type="submit">Enviar</button>
@@ -144,8 +157,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
-  <script src="./index.js"></script>
-  <script src="./roles.js"></script>
+  <script type="module" src="./index.js"></script>
+  <script type="module" src="./roles.js"></script>
 </body>
 
 </html>

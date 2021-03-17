@@ -166,7 +166,8 @@ const submitBusqueda = (e) => {
     const termino = busquedaInput.value.toLowerCase();
     const usuariosFiltrados = usuariosLocal.filter((usuario) => {
         const nombreEnMinuscula = usuario.nombre.toLowerCase();
-        return nombreEnMinuscula.includes(termino);
+        const emailEnMinuscula = usuario.email.toLowerCase();
+        return nombreEnMinuscula.includes(termino) || emailEnMinuscula.includes(termino);
     });
     usuarios = usuariosFiltrados;
     mostrarUsuarios();
