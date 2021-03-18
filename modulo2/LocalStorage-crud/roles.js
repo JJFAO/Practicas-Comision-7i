@@ -1,6 +1,6 @@
 const rolesForm = document.getElementById('formularioRoles');
 const crearRolInput = document.getElementById('nuevoRol');
-const rolInput = document.getElementById('inputRol');
+// const rolInput = document.getElementById('inputRol');
 const rolesUl = document.getElementById('listaRoles');
 let roles = JSON.parse(localStorage.getItem('roles')) || ['Dev', 'Master'];
 
@@ -10,8 +10,8 @@ function submitAltaRol(e) {
     roles.push(rol);
     localStorage.setItem('roles', JSON.stringify(roles)); // Guardar en localStorage un dato asociado a la key "usuarios".
     mostrarRoles();
-    // console.log('Se registró exitosamente un usuario. 👨‍💻');
-    // formularioForm.reset(); // reset limpia los campos del formulario.
+    console.log('Se agregó exitosamente un rol. 👨‍💻');
+    rolesForm.reset(); // reset limpia los campos del formulario.
 }
 
 function mostrarRoles() {
@@ -19,19 +19,28 @@ function mostrarRoles() {
         (rol) => `
             <option>${rol}</option>
         `
-    ); // La función recorre y map genera un array nuevo sin modificar el array original.
-    // // Recibe por parámetros la función que debe ejecutarse por cada elemento del array.
+    );
     rolInput.innerHTML = rolesMap.join('');
+    editarRolInput.innerHTML = rolesMap.join('');
 
     const listaRolesMap = roles.map(
         (rol) => `
     <li>
         <span style="min-width: 150px; display: inline-block">${rol}</span>
-        <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+        <button onclick="eliminarRol('${rol}')" type="button" class="btn btn-sm btn-danger">Eliminar</button>
     </li>
     `
     );
     rolesUl.innerHTML = listaRolesMap.join('');
+}
+
+function eliminarRol(rol) {
+    console.log(rol)
+    const rolesFiltrados = roles.filter((r) => r !== rol);
+    localStorage.setItem('roles', JSON.stringify(rolesFiltrados)); // Guardar en localStorage un dato asociado a la key "usuarios".
+    roles = rolesFiltrados;
+    console.log('Se eliminó exitosamente un rol. 👨‍💻');
+    mostrarRoles();
 }
 
 mostrarRoles();
