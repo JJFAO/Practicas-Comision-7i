@@ -1,4 +1,4 @@
-function Card(props) {
+export default function Card(props) {
     return (
         <div className="container py-5">
             <div className="card" style={{ width: '18rem' }}>
@@ -14,4 +14,3 @@ function Card(props) {
         </div>
     );
 }
-export default Card;
