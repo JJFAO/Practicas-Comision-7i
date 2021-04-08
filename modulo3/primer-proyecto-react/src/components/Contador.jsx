@@ -1,7 +1,10 @@
 import { useState } from 'react';
 
 export default function Contador() {
-    const [counter, setCounter] = useState(0);
+    let [counter, setCounter] = useState(0);
+    // const array = useState(0);
+    // const counter = array[0];
+    // const setCounter = array[1];
 
     const addCounter = () => {
         setCounter(counter + 10);
@@ -12,6 +15,7 @@ export default function Contador() {
     const reset = () => {
         setCounter(0);
     };
+
     return (
         <div>
             <h1>Contador: {counter}</h1>

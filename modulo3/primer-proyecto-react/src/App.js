@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Nav from './components/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from './components/Card';
+import Contador from './components/Contador';
+import FormPersonas from './components/FormPersonas';
 
 const articulos = [
     {
@@ -36,6 +38,8 @@ export default function App() {
                     />
                 ))}
             </div>
+            <Contador />
+            <FormPersonas />
         </div>
     );
 }
