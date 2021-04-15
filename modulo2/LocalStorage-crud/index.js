@@ -125,7 +125,7 @@ function editarUsuario(e) {
         // Usamos el id de usuario guardado en usuarioId,
         // para modificar solo al usuario que coincida con este.
         if (usuario.id === usuarioId) {
-            // Usar spread syntax para copiar las propiedades de un objeto a otro.
+            // Usar ...(spread syntax) para copiar las propiedades de un objeto a otro.
             const usuarioModificado = {
                 ...usuario,
                 nombre: editarNombreInput.value,

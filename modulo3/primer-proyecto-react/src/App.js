@@ -1,9 +1,10 @@
-import { useState } from 'react';
 import Nav from './components/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from './components/Card';
 import Contador from './components/Contador';
 import FormPersonas from './components/FormPersonas';
+import NavReactB from './components/NavReactB';
+import { useState } from 'react';
 
 const articulos = [
     {
@@ -24,22 +25,28 @@ const articulos = [
 ];
 
 export default function App() {
-    const [articles, setArticles] = useState(articulos);
+    const [section, setSection] = useState('Formulario');
+    console.log("🚀 - App - section", section);
 
     return (
         <div className="">
-            <Nav />
-            <div className="container d-flex">
-                {articles.map((articulo) => (
-                    <Card
-                        imagen={articulo.image}
-                        titulo={articulo.titulo}
-                        descripcion={articulo.descripcion}
-                    />
-                ))}
-            </div>
-            <Contador />
-            <FormPersonas />
+            {/* <Nav /> */}
+            <NavReactB setSection={setSection} />
+
+            {section === 'Cards' && (
+                <div className="container d-flex">
+                    {articulos.map((articulo) => (
+                        <Card
+                            imagen={articulo.image}
+                            titulo={articulo.titulo}
+                            descripcion={articulo.descripcion}
+                        />
+                    ))}
+                </div>
+            )}
+            {section === 'Contador' && <Contador />}
+
+            {section === 'Formulario' && <FormPersonas />}
         </div>
     );
 }
