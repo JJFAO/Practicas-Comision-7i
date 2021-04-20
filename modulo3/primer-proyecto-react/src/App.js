@@ -4,6 +4,7 @@ import Card from './components/Card';
 import Contador from './components/Contador';
 import FormPersonas from './components/FormPersonas';
 import NavReactB from './components/NavReactB';
+import Photos from './pages/Photos';
 import { useState } from 'react';
 
 const articulos = [
@@ -25,7 +26,7 @@ const articulos = [
 ];
 
 export default function App() {
-    const [section, setSection] = useState('Formulario');
+    const [section, setSection] = useState('Fotos');
     console.log("🚀 - App - section", section);
 
     return (
@@ -47,6 +48,8 @@ export default function App() {
             {section === 'Contador' && <Contador />}
 
             {section === 'Formulario' && <FormPersonas />}
+
+            {section === 'Fotos' && <Photos />}
         </div>
     );
 }
