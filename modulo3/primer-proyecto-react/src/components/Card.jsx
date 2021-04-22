@@ -8,9 +8,9 @@ export default function Card(props) {
                 <div className="card-body">
                     <h5 className="card-title">{props.titulo}</h5>
                     <p className="card-text">{props.descripcion}</p>
-                    <a href="#" className="btn btn-primary">
+                    <button className="btn btn-primary">
                         Go somewhere
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
