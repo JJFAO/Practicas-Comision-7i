@@ -2,25 +2,36 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 // En este ejemplo crearemos un formulario para cargar artículos.
-// Para este componente copiamos el ejemplo de formulario con validaciones de react Bootstrap.
-// Editamos su contenido y agregamos las funciones y estados necesarios.
-// Agregamos un state y una función que guarde los datos del formulario. (input, handleChange)
-// Y un estado donde guardar el array de artículos. (articulos)
-// En la función handleSubmit actualizamos el state articulos, solo cuando todos los campos estén validados.
+// 1- Para este componente copiamos el ejemplo de formulario con validaciones de react Bootstrap.
+// 2- Editamos su contenido y agregamos las funciones y estados necesarios.
+// 3- Agregamos un state y una función que guarde los datos del formulario. (input, handleChange)
+// 4- Y un estado donde guardar el array de artículos. (articulos)
+// 5- En la función handleSubmit actualizamos el state articulos, solo cuando todos los campos estén validados.
+
+const setLStorageItem = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+const initialArticulos = JSON.parse(localStorage.getItem('articulos')) || [];
+
 export default function CustomForm() {
     const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
-    const [articulos, setArticulos] = useState([]);
+    const [articulos, setArticulos] = useState(initialArticulos);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         event.preventDefault();
         if (form.checkValidity() === true) {
             // Cuando los campos estén completos, agregamos el artículo al array.
-            setArticulos([...articulos, input]);
+            const newArticulos = [...articulos, input];
+            setArticulos(newArticulos);
+            setLStorageItem('articulos', newArticulos);
+            form.reset();
+            setValidated(false);
+        } else {
+            setValidated(true);
         }
-
-        setValidated(true);
     };
 
     const handleChange = (event) => {
