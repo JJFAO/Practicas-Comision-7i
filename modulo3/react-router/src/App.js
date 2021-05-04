@@ -3,9 +3,9 @@ import Card from './components/Card';
 import NavReactB from './components/NavReactB';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './app.css';
-import News from './pages/News'
 import Login from './pages/Login';
 import { useState } from 'react';
+import NewsContainer from './pages/NewsContainer';
 
 export default function App() {
     const [user, setUser] = useState('');
@@ -18,7 +18,7 @@ export default function App() {
                     <Login setUser={setUser} />
                 </Route>
                 <Route path="/news">
-                    <News currentUser={user} />
+                    <NewsContainer currentUser={user} />
                 </Route>
                 <Route path="/" exact>Home</Route>
                 <Route path="/">404</Route>
