@@ -10,7 +10,7 @@ export default function NewsList({ currentUser, articles }) {
     return (
             <div className="d-flex flex-wrap">
                 {articles.map((art) => (
-                    <CardNews articulo={art} />
+                    <CardNews articulo={art} key={art.url} />
                 ))}
             </div>
     );

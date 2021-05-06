@@ -17,7 +17,7 @@ export default function App() {
                 <Route path="/login">
                     <Login setUser={setUser} />
                 </Route>
-                <Route path="/news">
+                <Route path="/news/:category">
                     <NewsContainer currentUser={user} />
                 </Route>
                 <Route path="/" exact>Home</Route>

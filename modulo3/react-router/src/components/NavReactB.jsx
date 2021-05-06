@@ -14,7 +14,7 @@ export default function NavReactB(props) {
                     <Nav.Link to="/" exact as={NavLink} activeClassName="active">
                         Home
                     </Nav.Link>
-                    <Nav.Link to="news" as={NavLink} activeClassName="active">
+                    <Nav.Link to="/news/general" as={NavLink} activeClassName="active">
                         Noticias
                     </Nav.Link>
                     {/* <Nav.Link onClick={() => props.setSection('Cards')}>Cards</Nav.Link>

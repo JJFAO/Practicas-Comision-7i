@@ -19,7 +19,7 @@ export default function Login({ setUser }) {
         if (input.email === admin.email && input.password === admin.password) {
             alert('Logueo exitoso 😎 ' + admin.name);
             setUser(admin.name);
-            history.push('/news');
+            history.push('/news/general');
         } else {
             alert('datos incorrectos.');
         }

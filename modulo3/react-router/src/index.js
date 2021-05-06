@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+axios.defaults.baseURL = 'https://newsapi.org/v2';
+axios.defaults.headers.common['X-Api-Key'] = 'bb4af6c6f5c34c9ea5feb50daa586299';
 
 ReactDOM.render(
   <React.StrictMode>
