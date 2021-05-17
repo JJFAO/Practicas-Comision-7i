@@ -1,5 +1,5 @@
 body {
-    transition: ease-out 1s;
+    transition: background-color ease-out 1s;
     margin: 0;
     font-family: sans-serif;
     background: rgb(131, 58, 180);
