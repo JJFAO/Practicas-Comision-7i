@@ -1,25 +1,32 @@
-// Importación de módulos de versiones anteriores
+// Importación de módulos
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
 const morgan = require('morgan');
-const usuariosRoutes = require('./routes/usuarios');
+const usuarioRoute = require('./routes/usuarioRoute');
+
+// Conectar a mongodb
+mongoose
+    .connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+    })
+    .then(() => console.log('Conectado a mongo DB'));
+
 // crear el servidor
 const app = express();
 
-// Conectar a mongodb
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-});
-
+// Habilitar express.json
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded());
-app.use(morgan('tiny'));
+
+// Configurar logs de morgan
+app.use(morgan('dev'));
+
 //importar rutas
-app.use('/api/usuarios', usuariosRoutes);
+app.use('/api/usuarios', usuarioRoute);
 
 // puerto y arranque del servidor
 app.listen(4000, () => {

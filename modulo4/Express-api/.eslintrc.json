@@ -16,7 +16,7 @@
     "rules": {
         "node/callback-return": "error",
         "array-callback-return": ["error", { "checkForEach": true }],
-        "prettier/prettier": "error",
+        "prettier/prettier": "warn",
         "class-methods-use-this": "off",
         "no-param-reassign": "off",
         "camelcase": "off",
