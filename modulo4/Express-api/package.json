@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "proyecto de practica con express",
   "main": "index.js",
+  "engines": {
+      "node": ">=12"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./index.js"

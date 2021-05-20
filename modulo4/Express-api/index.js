@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const usuarioRoute = require('./routes/usuarioRoute');
+const authRoute = require('./routes/authRoute');
 
 // Conectar a mongodb
 mongoose
@@ -13,7 +14,8 @@ mongoose
         useFindAndModify: false,
         useCreateIndex: true,
     })
-    .then(() => console.log('Conectado a mongo DB'));
+    .then(() => console.log('Conectado a mongo DB'))
+    .catch((err) => console.log('No se conecto a la DB', err));
 
 // crear el servidor
 const app = express();
@@ -27,6 +29,7 @@ app.use(morgan('dev'));
 
 //importar rutas
 app.use('/api/usuarios', usuarioRoute);
+app.use('/api/auth', authRoute);
 
 // puerto y arranque del servidor
 app.listen(4000, () => {
