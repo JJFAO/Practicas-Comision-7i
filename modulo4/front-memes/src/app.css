@@ -1,0 +1,12 @@
+.nav-style .nav-link {
+    /* color: orange !important; */
+}
+
+.fix-footer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.footer {
+    background-color: rgb(19, 16, 16);
+}

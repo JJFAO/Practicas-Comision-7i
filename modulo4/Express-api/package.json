@@ -4,7 +4,7 @@
   "description": "proyecto de practica con express",
   "main": "index.js",
   "engines": {
-      "node": ">=12"
+    "node": ">=12"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-validator": "^6.11.1",
