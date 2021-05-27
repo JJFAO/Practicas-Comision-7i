@@ -18,7 +18,7 @@ export default function App() {
                 <NavReactB />
                 <Switch>
                     <Route path="/login">
-                        <Login setUser={setUser} />
+                        <Login setUser={setUser} setToken={setToken} />
                     </Route>
 
                     <Route path="/news/:category">
@@ -36,7 +36,9 @@ export default function App() {
                     <Route path="/">404</Route>
                 </Switch>
             </Router>
-            <footer className="mt-auto footer">Footer</footer>
+            <footer className="mt-auto bg-dark text-light footer text-center">
+                <h3>Footer</h3>
+            </footer>
         </div>
     );
 }

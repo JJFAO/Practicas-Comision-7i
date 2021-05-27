@@ -1,10 +1,9 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-const admin = { email: 'rik@correo.com', name: 'rick', password: '123' };
-
-export default function Login({ setUser }) {
+export default function Login({ setUser, setToken }) {
     const [input, setInput] = useState({});
     const history = useHistory();
 
@@ -14,15 +13,20 @@ export default function Login({ setUser }) {
         setInput(newInput);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (input.email === admin.email && input.password === admin.password) {
-            alert('Logueo exitoso 😎 ' + admin.name);
-            setUser(admin.name);
-            history.push('/news/general');
-        } else {
+        try {
+            const { data } = await axios.post('/auth/login', input);
+            localStorage.setItem('token', JSON.stringify(data));
+            setToken(data.token);
+            // setUser(admin.name);
+            alert('Logueo exitoso 😎 ');
+            history.push('/');
+        } catch (error) {
+            console.log(error.response.data);
             alert('datos incorrectos.');
         }
+
     };
 
     return (
