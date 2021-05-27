@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Form, InputGroup, Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { Form, InputGroup, Button, Container, Row, Col, Card, Alert } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
 export default function Register({ setToken }) {
     const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
+    const [alert, setAlert] = useState('');
     const history = useHistory();
 
     const handleSubmit = async (event) => {
@@ -17,17 +18,21 @@ export default function Register({ setToken }) {
         }
         try {
             const { data } = await axios.post('/auth/register', input);
-            
+
             localStorage.setItem('token', JSON.stringify(data));
             setToken(data.token);
             history.push('/');
             // window.location.replace('/');
         } catch (error) {
             console.log(error.response.data);
+            error.response.data.msg
+                ? setAlert(error.response.data.msg[0].msg)
+                : setAlert(error.response.data);
         }
     };
 
     const handleChange = (e) => {
+        setAlert('');
         const { name, value } = e.target;
         const changedInput = { ...input, [name]: value };
         setInput(changedInput);
@@ -37,6 +42,7 @@ export default function Register({ setToken }) {
         <Container>
             <Row>
                 <Col xs={12} sm={8} md={6} className="mx-auto my-5">
+                    {alert && <Alert variant="danger">{alert}</Alert>}
                     <Card className="border">
                         <Card.Header className="bg-info">
                             <h4 className="text-white">Registro</h4>

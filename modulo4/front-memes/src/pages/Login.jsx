@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 export default function Login({ setUser, setToken }) {
     const [input, setInput] = useState({});
+    const [alert, setAlert] = useState('');
     const history = useHistory();
 
     const handleChange = (event) => {
+        setAlert('');
         const { value, name } = event.target;
         const newInput = { ...input, [name]: value };
         setInput(newInput);
@@ -20,17 +22,18 @@ export default function Login({ setUser, setToken }) {
             localStorage.setItem('token', JSON.stringify(data));
             setToken(data.token);
             // setUser(admin.name);
-            alert('Logueo exitoso 😎 ');
             history.push('/');
         } catch (error) {
-            console.log(error.response.data);
-            alert('datos incorrectos.');
+            console.log(error.response.data.msg);
+            error.response.data.msg[0].msg
+                ? setAlert(error.response.data.msg[0].msg)
+                : setAlert(error.response.data.msg);
         }
-
     };
 
     return (
         <Form onSubmit={handleSubmit} className="card mx-auto p-4 mt-5" style={{ width: '400px' }}>
+            {alert && <Alert variant="danger">{alert}</Alert>}
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
