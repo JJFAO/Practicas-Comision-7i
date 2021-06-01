@@ -84,7 +84,7 @@ exports.login = async (req, res) => {
             payload,
             process.env.SECRETA,
             {
-                expiresIn: 3600, //1 hora
+                expiresIn: '365d', //1 hora
             },
             (error, token) => {
                 if (error) throw error;

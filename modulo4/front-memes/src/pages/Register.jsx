@@ -17,12 +17,12 @@ export default function Register({ setToken }) {
             return event.stopPropagation();
         }
         try {
+            // Consulta al back para registro de usuario
             const { data } = await axios.post('/auth/register', input);
 
             localStorage.setItem('token', JSON.stringify(data));
             setToken(data.token);
             history.push('/');
-            // window.location.replace('/');
         } catch (error) {
             console.log(error.response.data);
             error.response.data.msg
