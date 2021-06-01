@@ -7,7 +7,7 @@ exports.register = async (req, res) => {
     // revisamos los errores
     const errores = validationResult(req);
     if (!errores.isEmpty()) {
-        return res.status(400).json({ msg: errores.array() });
+        return res.status(400).json(errores.array()[0]);
     }
 
     let { email, password } = req.body;
@@ -16,7 +16,7 @@ exports.register = async (req, res) => {
         let usuarioEncontrado = await Usuario.findOne({ email });
 
         if (usuarioEncontrado) {
-            return res.status(400).send('Email ya esta en uso');
+            return res.status(400).send({ msg: 'Email ya esta en uso' });
         }
 
         //nuevo usuario
@@ -50,7 +50,7 @@ exports.register = async (req, res) => {
         );
     } catch (error) {
         console.log(error);
-        res.status(400).send('Hubo un error al crear el Usuario');
+        res.status(400).send({ msg: 'Hubo un error al crear el Usuario' });
     }
 };
 
@@ -58,7 +58,7 @@ exports.login = async (req, res) => {
     // revisamos los errores
     const errores = validationResult(req);
     if (!errores.isEmpty()) {
-        return res.status(400).json({ msg: errores.array() });
+        return res.status(400).json(errores.array()[0]);
     }
     const { email, password } = req.body;
 
@@ -93,11 +93,16 @@ exports.login = async (req, res) => {
         );
     } catch (error) {
         console.log('~ error', error);
+        res.status(400).send({ msg: 'Hubo un error en login' });
     }
 };
 
 exports.getUser = async (req, res) => {
-    const usuario = await Usuario.findById(req.usuario.id).select('-password -__v');
+    try {
+        const usuario = await Usuario.findById(req.usuario.id).select('-password -__v');
 
-    res.send(usuario);
+        res.send(usuario);
+    } catch (error) {
+        res.status(400).send({ msg: 'Hubo un error al obtener el usuario' });
+    }
 };

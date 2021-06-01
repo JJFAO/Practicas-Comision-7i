@@ -6,7 +6,7 @@ exports.crearUsuario = async (req, res) => {
     // revisamos los errores
     const errores = validationResult(req);
     if (!errores.isEmpty()) {
-        return res.status(400).json({ msg: errores.array() });
+        return res.status(400).json(errores.array()[0]);
     }
 
     let { email, password } = req.body;
@@ -15,7 +15,7 @@ exports.crearUsuario = async (req, res) => {
         let usuarioEncontrado = await Usuario.findOne({ email });
 
         if (usuarioEncontrado) {
-            return res.status(400).send('Email ya esta en uso');
+            return res.status(400).send({ msg: 'Email ya esta en uso' });
         }
 
         //nuevo usuario
@@ -30,10 +30,20 @@ exports.crearUsuario = async (req, res) => {
         res.send(usuario);
     } catch (error) {
         console.log(error);
-        res.status(400).send('Hubo un error al crear el Usuario');
+        res.status(400).send({ msg: 'Hubo un error al crear el Usuario'});
     }
 };
 
 exports.obtenerUsuarios = (req, res) => {
     console.log('funcion obtener usuarios');
+};
+
+exports.updateUser = async (req, res) => {
+    try {
+        const { usuario, body } = req;
+        const updatedUser = await Usuario.findByIdAndUpdate(usuario.id, body, { new: true });
+        res.send(updatedUser);
+    } catch (error) {
+        res.status(400).send({ msg: 'Hubo un error al actualizar el Usuario'});
+    }
 };
