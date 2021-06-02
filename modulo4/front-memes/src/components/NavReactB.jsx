@@ -4,7 +4,8 @@
 import { Button, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-export default function NavReactB(props) {
+export default function NavReactB({ userName, logout }) {
+
     return (
         <Navbar className="bg-dark navbar-dark" expand="lg">
             <Navbar.Brand href="#home">RC</Navbar.Brand>
@@ -22,12 +23,18 @@ export default function NavReactB(props) {
                     <Nav.Link onClick={() => props.setSection('Formulario')}>Formulario</Nav.Link>
                 <Nav.Link onClick={() => props.setSection('Fotos')}>Fotos</Nav.Link> */}
                 </Nav>
-                <Button className="ml-auto" activeClassName="btn btn-danger" as={NavLink} to="login">
-                    Login
-                </Button>
-                <Button className="ml-auto" activeClassName="btn btn-danger" as={NavLink} to="register">
-                    Register
-                </Button>
+                {!userName && (
+                    <Button className="ml-auto" activeClassName="btn btn-danger" as={NavLink} to="login">
+                        Login
+                    </Button>
+                )}
+                {!userName && (
+                    <Button className="ml-auto" activeClassName="btn btn-danger" as={NavLink} to="register">
+                        Register
+                    </Button>
+                )}
+                {userName && <h3 className="text-white mr-2">{userName}</h3>}
+                {userName && <Button variant="primary" onClick={logout}>Cerrar Sesión</Button>}
             </Navbar.Collapse>
         </Navbar>
     );

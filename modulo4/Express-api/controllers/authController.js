@@ -99,7 +99,7 @@ exports.login = async (req, res) => {
 
 exports.getUser = async (req, res) => {
     try {
-        const usuario = await Usuario.findById(req.usuario.id).select('-password -__v');
+        const usuario = await Usuario.findById(req.usuario.id).select('-registro -password -__v');
 
         res.send(usuario);
     } catch (error) {
