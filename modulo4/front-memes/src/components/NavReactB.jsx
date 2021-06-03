@@ -5,7 +5,6 @@ import { Button, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 export default function NavReactB({ userName, logout }) {
-
     return (
         <Navbar className="bg-dark navbar-dark" expand="lg">
             <Navbar.Brand href="#home">RC</Navbar.Brand>
@@ -15,9 +14,12 @@ export default function NavReactB({ userName, logout }) {
                     <Nav.Link to="/" exact as={NavLink} activeClassName="active">
                         Home
                     </Nav.Link>
-                    <Nav.Link to="/news/general" as={NavLink} activeClassName="active">
-                        Noticias
-                    </Nav.Link>
+                    {userName && (
+                        <Nav.Link to="/createMeme" as={NavLink} activeClassName="active">
+                            Crear Meme
+                        </Nav.Link>
+                    )}
+
                     {/* <Nav.Link onClick={() => props.setSection('Cards')}>Cards</Nav.Link>
                     <Nav.Link onClick={() => props.setSection('Contador')}>Contador</Nav.Link>
                     <Nav.Link onClick={() => props.setSection('Formulario')}>Formulario</Nav.Link>
@@ -34,7 +36,11 @@ export default function NavReactB({ userName, logout }) {
                     </Button>
                 )}
                 {userName && <h3 className="text-white mr-2">{userName}</h3>}
-                {userName && <Button variant="primary" onClick={logout}>Cerrar Sesión</Button>}
+                {userName && (
+                    <Button variant="primary" onClick={logout}>
+                        Cerrar Sesión
+                    </Button>
+                )}
             </Navbar.Collapse>
         </Navbar>
     );

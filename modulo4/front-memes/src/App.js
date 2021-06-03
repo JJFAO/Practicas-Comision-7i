@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import axios from 'axios';
 import ScrollToTop from './components/ScrollToTop';
 import { Nav } from 'react-bootstrap';
+import FormMeme from './pages/FormMemes';
 
 const localToken = JSON.parse(localStorage.getItem('token'))?.token || '';
 
@@ -19,8 +20,8 @@ export default function App() {
     useEffect(() => {
         if (token) {
             const request = async () => {
-                const headers = { 'x-auth-token': token };
-                const { data } = await axios.get('/auth', { headers });
+                axios.defaults.headers = { 'x-auth-token': token };
+                const { data } = await axios.get('/auth');
                 setUser(data);
             };
             request();
@@ -29,6 +30,7 @@ export default function App() {
 
     const logout = () => {
         localStorage.removeItem('token');
+        axios.defaults.headers = { 'x-auth-token': '' };
         setUser({});
         setToken('');
     };
@@ -46,7 +48,7 @@ export default function App() {
                     </Route>
 
                     <Route exact path="/news/:category">
-                        <div style={{height: '2000px'}}></div>
+                        <div style={{ height: '2000px' }}></div>
                         <Main currentUser={user} />
                     </Route>
 
@@ -54,22 +56,26 @@ export default function App() {
                         <Register setToken={setToken} />
                     </Route>
 
+                    <Route exact path="/createMeme">
+                        <FormMeme />
+                    </Route>
+
                     <Route path="/" exact>
-                        <div style={{height: '2000px'}}></div>
+                        <div style={{ height: '2000px' }}></div>
                         Home
                     </Route>
 
                     <Route path="/">404</Route>
                 </Switch>
-            <footer className="mt-auto bg-dark text-light footer text-center">
-                <h3>Footer</h3>
-                <Nav.Link to="/" exact as={NavLink} activeClassName="active">
+                <footer className="mt-auto bg-dark text-light footer text-center">
+                    <h3>Footer</h3>
+                    <Nav.Link to="/" exact as={NavLink} activeClassName="active">
                         Home
                     </Nav.Link>
                     <Nav.Link to="/news/general" as={NavLink} activeClassName="active">
                         Noticias
                     </Nav.Link>
-            </footer>
+                </footer>
             </Router>
         </div>
     );
