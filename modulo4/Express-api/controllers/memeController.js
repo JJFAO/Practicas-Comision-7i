@@ -41,7 +41,7 @@ exports.deleteMeme = async (req, res) => {
 
 exports.getMemes = async (req, res) => {
     try {
-        const memes = await Meme.find();
+        const memes = await Meme.find().populate({ path: 'creator', select: 'nombre' });
         res.send(memes);
     } catch (error) {
         res.status(400).json({ msg: 'error al obtener el memes' });

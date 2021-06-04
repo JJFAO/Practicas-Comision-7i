@@ -47,11 +47,6 @@ export default function App() {
                         <Login setUser={setUser} setToken={setToken} />
                     </Route>
 
-                    <Route exact path="/news/:category">
-                        <div style={{ height: '2000px' }}></div>
-                        <Main currentUser={user} />
-                    </Route>
-
                     <Route exact path="/register">
                         <Register setToken={setToken} />
                     </Route>
@@ -61,8 +56,8 @@ export default function App() {
                     </Route>
 
                     <Route path="/" exact>
-                        <div style={{ height: '2000px' }}></div>
                         Home
+                        <Main currentUser={user} />
                     </Route>
 
                     <Route path="/">404</Route>

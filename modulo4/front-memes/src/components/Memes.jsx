@@ -1,16 +1,11 @@
-import Card from './Card'
+import Meme from './Meme';
 
-export default function Memes({ currentUser, articles }) {
-
-
-    // if (currentUser === '') {
-    //     return <Redirect to="login" />
-    // }
+export default function Memes({ memes }) {
 
     return (
             <div className="d-flex flex-wrap">
-                {articles.map((art) => (
-                    <Card articulo={art} key={art.url} />
+                {memes.map((meme) => (
+                    <Meme meme={meme} key={meme._id} />
                 ))}
             </div>
     );
