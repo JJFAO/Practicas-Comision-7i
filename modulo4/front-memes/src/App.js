@@ -10,6 +10,7 @@ import axios from 'axios';
 import ScrollToTop from './components/ScrollToTop';
 import { Nav } from 'react-bootstrap';
 import FormMeme from './pages/FormMemes';
+import Profile from './pages/Profile';
 
 const localToken = JSON.parse(localStorage.getItem('token'))?.token || '';
 
@@ -53,6 +54,10 @@ export default function App() {
 
                     <Route exact path="/createMeme">
                         <FormMeme />
+                    </Route>
+
+                    <Route exact path="/profile">
+                        <Profile user={user} />
                     </Route>
 
                     <Route path="/" exact>

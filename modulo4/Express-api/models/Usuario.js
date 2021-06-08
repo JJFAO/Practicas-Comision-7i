@@ -20,6 +20,10 @@ const UsuariosSchema = mongoose.Schema({
         type: Date,
         default: Date.now(),
     },
+    image: {
+        type: String,
+        trim: true,
+    },
 });
 
 module.exports = mongoose.model('Usuario', UsuariosSchema);
